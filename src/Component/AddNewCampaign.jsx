@@ -12,7 +12,7 @@ const AddNewCampaign = () => {
         const type=e.target.type.value;
         const description=e.target.description.value;
         const minDonation=e.target.minDonation.value;
-        const deadline=e.target.imageUrl.value;
+        const deadline=e.target.deadline.value;
         const email=e.target.email.value;
         const name=e.target.name.value;
 

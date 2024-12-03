@@ -8,7 +8,7 @@ const AllCampaign = () => {
         <div>
             <h1>Campign : {campigns.length}</h1>
 
-          <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+          <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3'>
           {
                 campigns.map(campign=><CampignCard key={campign._id} campign={campign}></CampignCard>)
             }
