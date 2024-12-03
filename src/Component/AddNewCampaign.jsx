@@ -1,4 +1,6 @@
 import React from 'react';
+import { data } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddNewCampaign = () => {
 
@@ -17,6 +19,29 @@ const AddNewCampaign = () => {
           const newCampaign={ imageUrl,title,type,description,minDonation,deadline,email,name};
 
           console.log(newCampaign)
+        //   send data to the server 
+        fetch('http://localhost:4000/campign',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newCampaign),
+
+
+
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+
+
+            Swal.fire({
+                title: "Success",
+                text: "Successfully added The campign",
+                icon: "success"
+              });
+        })
+
         
     }
     return (
