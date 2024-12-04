@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/logo.webp'
 
 const Navbar = () => {
     const link=<>
@@ -37,7 +38,10 @@ const Navbar = () => {
 
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">
+            <img className='h-10 w-10 rounded-full' src={logo}></img>
+
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -45,7 +49,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <button>
+            <Link to='/login'>
+            Log in
+            
+            </Link>
+
+
+          </button>
         </div>
       </div>
     );
