@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className=" bg-base-200 min-h-screen">
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
@@ -30,8 +30,8 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <button>Login with Google</button>
-      <p>Are you New? <Link to='/regiester'>Regiester</Link> </p>
+      <button className='btn btn-primary'>Login with Google</button>
+      <p>Are you New? <Link className='text-red-400' to='/register'>Regiester</Link> </p>
 
     </div>
   </div>

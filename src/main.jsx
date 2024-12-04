@@ -12,6 +12,7 @@ import Home from './Component/Home.jsx';
 import AddNewCampaign from './Component/AddNewCampaign.jsx';
 import AllCampaign from './Component/AllCampaign.jsx';
 import Login from './Component/Login.jsx';
+import Register from './Component/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>
       }
 
 
