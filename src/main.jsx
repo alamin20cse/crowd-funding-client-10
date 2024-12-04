@@ -13,6 +13,7 @@ import AddNewCampaign from './Component/AddNewCampaign.jsx';
 import AllCampaign from './Component/AllCampaign.jsx';
 import Login from './Component/Login.jsx';
 import Register from './Component/Register.jsx';
+import ErrorPage from './Component/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,12 +41,18 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
-      }
+      },
+     
 
 
 
     ]
   },
+
+  {
+    path:'*',
+    element:<ErrorPage></ErrorPage>
+}
  
 ]);
 
