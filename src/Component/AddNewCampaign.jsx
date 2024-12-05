@@ -151,7 +151,7 @@ const AddNewCampaign = () => {
           <label className="block text-gray-700 mb-2">User Name</label>
           <input
             type="text" name='name'
-            value={user?.name}
+            value={user?.displayName}
             readOnly
             className="w-full px-4 py-2 border border-gray-300 rounded bg-gray-100 focus:outline-none"
           />

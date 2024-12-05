@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
+  const navigate=useNavigate();
 
 
-  const {userLogin,setUser}=useContext(AuthContex);
+  const {userLogin,setUser,handelGooglSignIn}=useContext(AuthContex);
 
     const handleLogin=e=>{
         e.preventDefault();
@@ -32,8 +34,25 @@ const Login = () => {
 
 
 
+    const handleGoogleLogin = () => {
+     
+      handelGooglSignIn()
+        .then(() => {
+          navigate('/'); // Redirect to the home page
+          alert('Google sign-in successful!');
+        })
+        .catch(error => {
+        alert(error.message); // Error notification
+        });
+    };
+
+  
+
+
+
     return (
         <div className=" bg-base-200 min-h-screen">
+          <ToastContainer></ToastContainer>
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
@@ -60,7 +79,7 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <button className='btn btn-primary'>Login with Google</button>
+      <button onClick={handleGoogleLogin} className='btn btn-primary'>Login with Google</button>
       <p>Are you New? <Link className='text-red-400' to='/register'>Regiester</Link> </p>
 
     </div>

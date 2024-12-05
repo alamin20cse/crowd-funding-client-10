@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.webp'
 import { AuthContex } from './AuthProvider';
 
+
 const Navbar = () => {
     const link=<>
    <li><NavLink to='/'>Home</NavLink> </li>
