@@ -14,6 +14,7 @@ import AllCampaign from './Component/AllCampaign.jsx';
 import Login from './Component/Login.jsx';
 import Register from './Component/Register.jsx';
 import ErrorPage from './Component/ErrorPage.jsx';
+import AuthProvider from './Component/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+      <AuthProvider>
       <RouterProvider router={router} />
+      </AuthProvider>
   </StrictMode>,
 )

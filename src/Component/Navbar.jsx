@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.webp'
+import { AuthContex } from './AuthProvider';
 
 const Navbar = () => {
     const link=<>
@@ -10,6 +11,8 @@ const Navbar = () => {
     
     </>
 
+const {name}=useContext(AuthContex);
+console.log(name);
 
 
     return (
@@ -49,7 +52,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className='btn'>
+
+          {/*  */}
+         <div className='flex '>
+          <div>
+            <p>{name}</p>
+          </div>
+
+         <button className='btn'>
             <Link to='/login'>
             Log in
             
@@ -57,6 +67,7 @@ const Navbar = () => {
 
 
           </button>
+         </div>
         </div>
       </div>
     );
