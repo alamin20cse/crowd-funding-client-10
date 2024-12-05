@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { data } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContex } from './AuthProvider';
 
 const AddNewCampaign = () => {
+  const {user}=useContext(AuthContex);
 
 
     const handlenewCampaign=(e)=>{
@@ -138,8 +140,8 @@ const AddNewCampaign = () => {
           <label className="block text-gray-700 mb-2">User Email</label>
           <input
             type="email" name='email'
-            // value={user?.email}
-            // readOnly
+            value={user?.email}
+            readOnly
             className="w-full px-4 py-2 border border-gray-300 rounded bg-gray-100 focus:outline-none"
           />
         </div>
@@ -149,8 +151,8 @@ const AddNewCampaign = () => {
           <label className="block text-gray-700 mb-2">User Name</label>
           <input
             type="text" name='name'
-            // value={user?.name}
-            // readOnly
+            value={user?.name}
+            readOnly
             className="w-full px-4 py-2 border border-gray-300 rounded bg-gray-100 focus:outline-none"
           />
         </div>

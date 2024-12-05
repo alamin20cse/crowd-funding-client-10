@@ -11,8 +11,8 @@ const Navbar = () => {
     
     </>
 
-const {user}=useContext(AuthContex);
-console.log(user);
+const {user,logOut}=useContext(AuthContex);
+// console.log(user);
 
 
     return (
@@ -51,29 +51,35 @@ console.log(user);
            {link}
           </ul>
         </div>
-        <div className="navbar-end">
 
-          {/*  */}
-         <div className='flex '>
-          <div>
-          <img
+
+
+        
+
+      <div className="navbar-end">
+        {/* email */}
+    {user && user?.email ? (
+        <div className="flex items-center gap-3 justify-end">
+          <p>{user?.displayName}</p>
+          {/* image  */}
+            <img
                 className="w-10 h-10  rounded-full"
                 src={user?.photoURL || '/default-avatar.png'} // Fallback to default avatar
                 alt="User Profile"
             />
-            <p>{user?.email}</p>
-          </div>
-
-         <button className='btn'>
-            <Link to='/login'>
-            Log in
-            
-            </Link>
-
-
-          </button>
-         </div>
+            <button onClick={logOut} className="btn btn-primary">
+                Log Out
+            </button>
         </div>
+    ) : (
+        <div className="flex gap-3">
+           
+            <Link className="btn" to="/login">Login</Link>
+        </div>
+    )}
+</div>
+
+
       </div>
     );
 };
