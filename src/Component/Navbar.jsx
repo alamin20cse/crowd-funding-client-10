@@ -11,8 +11,8 @@ const Navbar = () => {
     
     </>
 
-const {name}=useContext(AuthContex);
-console.log(name);
+const {user}=useContext(AuthContex);
+console.log(user);
 
 
     return (
@@ -56,7 +56,12 @@ console.log(name);
           {/*  */}
          <div className='flex '>
           <div>
-            <p>{name}</p>
+          <img
+                className="w-10 h-10  rounded-full"
+                src={user?.photoURL || '/default-avatar.png'} // Fallback to default avatar
+                alt="User Profile"
+            />
+            <p>{user?.email}</p>
           </div>
 
          <button className='btn'>
