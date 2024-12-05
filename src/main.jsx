@@ -15,6 +15,7 @@ import Login from './Component/Login.jsx';
 import Register from './Component/Register.jsx';
 import ErrorPage from './Component/ErrorPage.jsx';
 import AuthProvider from './Component/AuthProvider.jsx';
+import Details from './Component/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,12 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Register></Register>
       },
+      {
+        path:"/details/:_id",
+        element: <Details />,
+        loader:()=>fetch('http://localhost:4000/campign'),
+      },
+     
      
 
 
