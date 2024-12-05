@@ -17,11 +17,10 @@ const CampignCard = ({campign}) => {
     <p>{description}</p>
     <p>{name}</p>
     <p>{email}</p>
-    <p>{email}</p>
     <p>{minDonation}</p>
     <p>{deadline}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-primary">See More</button>
     
     </div>
   </div>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate=useNavigate();
@@ -39,10 +39,10 @@ const Login = () => {
       handelGooglSignIn()
         .then(() => {
           navigate('/'); // Redirect to the home page
-          alert('Google sign-in successful!');
+          toast.success('Google sign-in successful!');
         })
         .catch(error => {
-        alert(error.message); // Error notification
+          toast.error(error.message); // Error notification
         });
     };
 

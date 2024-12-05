@@ -23,7 +23,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:()=>fetch('http://localhost:4000/campign'),
 
       },
       {
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
         path:'/allcampaign',
         element:<AllCampaign></AllCampaign>,
         loader:()=>fetch('http://localhost:4000/campign'),
+       
       },
       {
         path:'/login',
