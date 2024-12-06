@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate=useNavigate();
+  const location=useLocation();
 
 
   const {userLogin,setUser,handelGooglSignIn}=useContext(AuthContex);
@@ -26,7 +27,7 @@ const Login = () => {
           // console.log(user);
           
           Swal.fire("Login succes fully");
-          navigate('/');
+          navigate(location?.state?location.state:'/');
         })
         .catch(error=>{
          Swal.fire(error.message);
@@ -40,7 +41,7 @@ const Login = () => {
      
       handelGooglSignIn()
         .then(() => {
-          navigate('/'); // Redirect to the home page
+          navigate(location?.state?location.state:'/');
           Swal.fire('Succesfully Login')
         })
         .catch(error => {

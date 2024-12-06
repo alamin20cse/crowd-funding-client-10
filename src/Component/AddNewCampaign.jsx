@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { data } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContex } from './AuthProvider';
+import Loading from './Loading';
 
 const AddNewCampaign = () => {
-  const {user}=useContext(AuthContex);
+  const {user,loading}=useContext(AuthContex);
+  if(loading)
+  {
+    return <Loading></Loading>
+  }
 
 
     const handlenewCampaign=(e)=>{

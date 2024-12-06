@@ -19,6 +19,7 @@ import Details from './Component/Details.jsx';
 import MyCampaign from './Component/MyCampaign.jsx';
 import MyDonations from './Component/MyDonations.jsx';
 import UpdateCampaigns from './Component/UpdateCampaigns.jsx';
+import PrivateRoute from './Component/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/addnewcampaign',
-        element:<AddNewCampaign></AddNewCampaign>
+        element:<PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
       },
       {
         path:'/allcampaign',
@@ -56,12 +57,13 @@ const router = createBrowserRouter([
       },
       {
         path:'/mycampaign',
-        element:<MyCampaign></MyCampaign>,
+        element:<PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>,
         loader:()=>fetch('http://localhost:4000/campign'),
       },
       {
         path:'/mydonations',
-        element:<MyDonations></MyDonations>
+        element:<PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
+        loader:()=>fetch(`http://localhost:4000/donatedcollection`)
       },
       {
         path: '/updatecampaigns/:id',

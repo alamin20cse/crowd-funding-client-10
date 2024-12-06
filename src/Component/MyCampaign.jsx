@@ -19,7 +19,7 @@ const MyCampaign = () => {
   }, [user, loadeddata]);
 
   if (!user) {
-    return <h2>Loading user information...</h2>; // Handle when user data is unavailable
+    return <span className="loading loading-spinner loading-lg"></span>; // Handle when user data is unavailable
   }
 
 
@@ -86,7 +86,7 @@ const MyCampaign = () => {
                 <th className="px-4 py-2 text-left">Serial</th>
                 <th className="px-4 py-2 text-left">Title</th>
                 <th className="px-4 py-2 text-left">Image</th>
-                <th className="px-4 w-5 py-2 text-left">Description</th>
+                <th className="px-4 w-5 py-2 text-left">MinDonation</th>
                 <th className="px-4 py-2 text-left">Deadline</th>
                 <th className="px-4 py-2 text-left">Actions</th>
               </tr>
@@ -95,7 +95,7 @@ const MyCampaign = () => {
               {userCampaigns.map((campaign, index) => (
                 <tr key={index} className="border-t">
                   <td className="px-4 py-2 text-left">{index + 1}</td>
-                  <td className="px-4 py-2 text-left">{campaign.title}</td>
+                  <td className="px-4 w-10 py-2 text-left">{campaign.title}</td>
                   <td className="px-4 py-2 text-left">
                     <img
                       src={campaign.imageUrl}
@@ -103,7 +103,7 @@ const MyCampaign = () => {
                       className="h-16 w-16 rounded-full object-cover"
                     />
                   </td>
-                  <td className="px-4 py-2 text-left text-gray-600">{campaign.description}</td>
+                  <td className="px-4 py-2 text-left text-gray-600">${campaign.minDonation}</td>
                   <td className="px-4 py-2 text-left">{campaign.deadline}</td>
                   <td className="px-4 py-2 text-left">
                   

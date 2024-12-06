@@ -48,7 +48,7 @@ const Details = () => {
 
   // Show loading message if data is not yet available
   if (!campaign) {
-    return <h2>Loading...</h2>;
+    return <span className="loading loading-spinner loading-lg"></span>;
   }
 
   // Destructure campaign details
