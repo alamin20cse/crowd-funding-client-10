@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContex } from './AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateCampaigns = () => {
     const { user } = useContext(AuthContex);
     const loadedCampaigns = useLoaderData();
     const { _id } = loadedCampaigns; // Extract the _id
+    const navigate=useNavigate();
 
     const handelupdate = (e) => {
         e.preventDefault();
@@ -41,6 +42,7 @@ const UpdateCampaigns = () => {
                         text: 'Successfully updated the campaign',
                         icon: 'success',
                     });
+                    navigate('/mycampaign')
                 }
             })
             .catch((err) => console.error('Error updating campaign:', err));

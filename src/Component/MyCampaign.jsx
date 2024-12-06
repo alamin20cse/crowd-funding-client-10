@@ -7,6 +7,7 @@ const MyCampaign = () => {
   const { user } = useContext(AuthContex); // Access user from context
   const loadeddata = useLoaderData(); // Data from loader
   const [userCampaigns, setUserCampaigns] = useState([]);
+  const [users,setusers]=useState(loadeddata);
 
   useEffect(() => {
     if (user && loadeddata) {
@@ -58,6 +59,9 @@ const MyCampaign = () => {
                 text: "Your file has been deleted.",
                 icon: "success"
               });
+              const updatedCampaigns = userCampaigns.filter((campaign) => campaign._id !== id);
+              setUserCampaigns(updatedCampaigns);
+              
 
             }
           })
