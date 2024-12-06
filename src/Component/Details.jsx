@@ -52,8 +52,8 @@ const Details = () => {
   }
 
   // Destructure campaign details
-  const { imageUrl, title, type, description, minDonation, deadline, email, name,displayName } = campaign;
-  console.log(campaign);
+  const { imageUrl, title, type, description, minDonation, deadline, email, name } = campaign;
+  // console.log(campaign);
 
 
 
@@ -64,6 +64,14 @@ const Details = () => {
     const userobj = {
       email: user.email,
       displayName: user.displayName,
+      imageUrl,        
+      title,
+      type,
+      description,
+      minDonation,
+      deadline,
+      name,
+
     };
 
     // console.log(userobj); 

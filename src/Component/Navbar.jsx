@@ -9,6 +9,8 @@ const Navbar = () => {
    <li><NavLink to='/'>Home</NavLink> </li>
    <li><NavLink to='/addnewcampaign'>Add new </NavLink> </li>
    <li><NavLink to='/allcampaign'>All Campign</NavLink> </li>
+   <li><NavLink to='/mycampaign'>My Campaign </NavLink> </li>
+   <li><NavLink to='/mydonations'>My Donation </NavLink> </li>
     
     </>
 

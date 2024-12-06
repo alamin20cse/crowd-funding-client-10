@@ -16,6 +16,9 @@ import Register from './Component/Register.jsx';
 import ErrorPage from './Component/ErrorPage.jsx';
 import AuthProvider from './Component/AuthProvider.jsx';
 import Details from './Component/Details.jsx';
+import MyCampaign from './Component/MyCampaign.jsx';
+import MyDonations from './Component/MyDonations.jsx';
+import UpdateCampaigns from './Component/UpdateCampaigns.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,22 @@ const router = createBrowserRouter([
         element: <Details />,
         loader:()=>fetch('http://localhost:4000/campign'),
       },
+      {
+        path:'/mycampaign',
+        element:<MyCampaign></MyCampaign>,
+        loader:()=>fetch('http://localhost:4000/campign'),
+      },
+      {
+        path:'/mydonations',
+        element:<MyDonations></MyDonations>
+      },
+      {
+        path: '/updatecampaigns/:id',
+        element: <UpdateCampaigns />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/campign/${params.id}`)
+      }
+      
      
      
 
