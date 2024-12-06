@@ -54,31 +54,49 @@ const {user,logOut}=useContext(AuthContex);
         </div>
 
 
+        <div className="navbar-end">
+  {user && user?.email ? (
+    <div className="relative flex items-center">
+      {/* User Image with Hover Actions */}
+      <div className="group relative flex items-center justify-center">
+        <img
+          className="w-10 h-10 rounded-full border-2 border-gray-300 hover:border-blue-500"
+          src={user?.photoURL || '/default-avatar.png'}
+          alt="User Profile"
+        />
 
-        
+        {/* Hover Actions Container */}
+        <div className="absolute z-50 flex flex-col items-center gap-2 top-full mt-2 group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-opacity duration-300">
+          {/* Display Name Tooltip */}
+          <div className="bg-gray-800 text-white text-sm rounded px-2 py-1">
+            {user?.displayName || 'Anonymous'}
+          </div>
+          {/* Log Out Button */}
+          <button
+            onClick={logOut}
+            className="bg-red-500 text-white rounded px-3 py-1 shadow-md hover:bg-red-600"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="flex gap-3">
+      {/* Login Button */}
+      <Link className="btn" to="/login">
+        Login
+      </Link>
 
-      <div className="navbar-end">
-        {/* email */}
-    {user && user?.email ? (
-        <div className="flex items-center gap-3 justify-end">
-          <p>{user?.displayName}</p>
-          {/* image  */}
-            <img
-                className="w-10 h-10  rounded-full"
-                src={user?.photoURL || '/default-avatar.png'} // Fallback to default avatar
-                alt="User Profile"
-            />
-            <button onClick={logOut} className="btn btn-primary">
-                Log Out
-            </button>
-        </div>
-    ) : (
-        <div className="flex gap-3">
-           
-            <Link className="btn" to="/login">Login</Link>
-        </div>
-    )}
+      <Link className="btn" to="/register">
+        Register
+      </Link>
+    </div>
+  )}
 </div>
+
+
+
 
 
       </div>
