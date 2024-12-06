@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate=useNavigate();
@@ -24,10 +25,11 @@ const Login = () => {
 
           // console.log(user);
           
-          alert('login succeful');
+          Swal.fire("Login succes fully");
+          navigate('/');
         })
         .catch(error=>{
-          alert(error);
+         Swal.fire(error.message);
 
         })
     }
@@ -39,10 +41,10 @@ const Login = () => {
       handelGooglSignIn()
         .then(() => {
           navigate('/'); // Redirect to the home page
-          toast.success('Google sign-in successful!');
+          Swal.fire('Succesfully Login')
         })
         .catch(error => {
-          toast.error(error.message); // Error notification
+         Swal.fire(error.message); // Error notification
         });
     };
 
@@ -52,7 +54,7 @@ const Login = () => {
 
     return (
         <div className=" bg-base-200 min-h-screen">
-          <ToastContainer></ToastContainer>
+        <ToastContainer></ToastContainer>
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>

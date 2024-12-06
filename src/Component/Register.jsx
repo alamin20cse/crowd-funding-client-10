@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const {createNewUser,setUser,updateUserProfile}=useContext(AuthContex);
+  const passwordRegex =/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
   const navigate=useNavigate();
   const handleRegister=(e)=>{
@@ -12,6 +15,15 @@ const Register = () => {
     const email=e.target.email.value;
     const photo=e.target.photo.value;
     const password=e.target.password.value;
+
+
+
+     
+    if (!passwordRegex.test(password)) {
+      Swal.fire('Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
+      
+      return;
+  }
 
     // console.log(name,email,photo,password);
     createNewUser(email,password)
@@ -23,18 +35,19 @@ const Register = () => {
       updateUserProfile({displayName:name,photoURL:photo})
       .then(result=>{
         navigate("/")
-        console.log(user);
+        // console.log(user);
+        Swal.fire('succefully regiester')
 
       })
       .catch(error=>{
-        console.log("eror of update",error)
+       Swal.fire(error.message);
       })
 
       
     })
 
   .catch(error=>{
-    console.log("ERROR",error);
+   Swal.fire(error.message)
   })
 
     
@@ -47,6 +60,7 @@ const Register = () => {
 
     return (
         <div className=" bg-base-200 min-h-screen">
+          <ToastContainer></ToastContainer>
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register now!</h1>

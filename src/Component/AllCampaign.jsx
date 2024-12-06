@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, NavLink, useLoaderData } from 'react-router-dom';
 
 const AllCampaign = () => {
   const loadedCampigns = useLoaderData();
@@ -16,7 +16,9 @@ const AllCampaign = () => {
               <th className="text-left lg:text-sm md:text-xs sm:text-[10px]">Serial</th>
               <th className="text-left lg:text-sm md:text-xs sm:text-[10px]">Image</th>
               <th className="text-left lg:text-sm md:text-xs sm:text-[10px]">Title</th>
-              <th className="text-left lg:text-sm md:text-xs sm:text-[10px]">Name</th>
+              <th className="text-left hidden lg:table-cell lg:text-sm md:text-xs sm:text-[10px]">Name</th>
+              <th className="text-left lg:text-sm md:text-xs sm:text-[10px]">Action</th>
+
               <th className="text-left hidden lg:table-cell lg:text-sm md:text-xs sm:text-[10px]">Deadline</th>
             </tr>
           </thead>
@@ -31,9 +33,11 @@ const AllCampaign = () => {
                     src={campign.imageUrl}
                     alt={campign.title}
                   />
+                  
                 </td>
                 <td className="text-sm lg:text-base md:text-sm sm:text-xs">{campign.title}</td>
-                <td className="text-sm lg:text-base md:text-sm sm:text-xs">{campign.name}</td>
+                <td className="text-left hidden lg:table-cell lg:text-sm md:text-xs sm:text-[10px]">{campign.name}</td>
+                <td className="text-sm my-auto lg:text-base md:text-sm sm:text-xs"> <NavLink className='btn btn-primary' to={`/details/${campign._id}`}>See More</NavLink></td>
                 <td className="text-sm hidden lg:table-cell lg:text-base md:text-sm sm:text-xs">{campign.deadline}</td>
               </tr>
             ))}

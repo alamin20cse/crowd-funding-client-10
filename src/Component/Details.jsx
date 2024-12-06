@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useLoaderData } from 'react-router-dom';
+import { AuthContex } from './AuthProvider';
+import Swal from 'sweetalert2';
 
 const Details = () => {
   const { _id } = useParams();  // Access the campaign ID from the URL
   const initialData = useLoaderData();  // Fetch campaign details based on the ID
   const [campaign, setCampaign] = useState(null);  // Initialize campaign state as null
+
+
+
+  const {user}=useContext(AuthContex);
 
   useEffect(() => {
     document.title = 'Campaign Details';
@@ -46,7 +52,45 @@ const Details = () => {
   }
 
   // Destructure campaign details
-  const { imageUrl, title, type, description, minDonation, deadline, email, name } = campaign;
+  const { imageUrl, title, type, description, minDonation, deadline, email, name,displayName } = campaign;
+  console.log(campaign);
+
+
+
+  // handel donate buttn
+  const handelDonate=e=>{
+    e.preventDefault();
+    
+    const userobj = {
+      email: user.email,
+      displayName: user.displayName,
+    };
+
+    // console.log(userobj); 
+          //   send data to the server 
+          fetch('http://localhost:4000/donatedcollection',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(userobj),
+
+
+
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+
+
+            Swal.fire({
+                title: "Donated",
+                text: "Successfully Donated",
+                icon: "success"
+              });
+        })
+
+  }
 
   return (
     <div className="max-w-sm mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
@@ -69,7 +113,7 @@ const Details = () => {
       <p>{_id}</p>
     </div>
     <div className="mt-4 flex justify-end">
-      <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button onClick={handelDonate} className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
         Donate Now
       </button>
     </div>

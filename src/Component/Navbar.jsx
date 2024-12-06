@@ -66,7 +66,7 @@ const {user,logOut}=useContext(AuthContex);
         />
 
         {/* Hover Actions Container */}
-        <div className="absolute z-50 flex flex-col items-center gap-2 top-full mt-2 group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-opacity duration-300">
+        <div className="absolute z-50 flex flex-col items-center top-full mt-0 group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-opacity duration-300">
           {/* Display Name Tooltip */}
           <div className="bg-gray-800 text-white text-sm rounded px-2 py-1">
             {user?.displayName || 'Anonymous'}
