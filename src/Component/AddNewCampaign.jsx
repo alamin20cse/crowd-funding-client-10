@@ -25,9 +25,9 @@ const AddNewCampaign = () => {
 
           const newCampaign={ imageUrl,title,type,description,minDonation,deadline,email,name};
 
-          console.log(newCampaign)
+          // console.log(newCampaign)
         //   send data to the server 
-        fetch('http://localhost:4000/campign',{
+        fetch('https://crowd-funding-10-server.vercel.app/campign',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -39,7 +39,7 @@ const AddNewCampaign = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+            // console.log(data);
 
 
             Swal.fire({
@@ -48,6 +48,7 @@ const AddNewCampaign = () => {
                 icon: "success"
               });
         })
+        e.target.reset();
 
 
 

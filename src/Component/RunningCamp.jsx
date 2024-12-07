@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CampignCard from './CampignCard';
+import { AuthContex } from './AuthProvider';
 
 
 const RunningCamp = () => {
 
     const campigns = useLoaderData();
+    const {loading}=useContext(AuthContex);
 
     // Filter campaigns to show only those with deadlines in the future
     const validCampaigns = campigns.filter(campaign => {

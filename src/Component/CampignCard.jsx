@@ -1,31 +1,24 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const CampignCard = ({ campign }) => {
-  const { imageUrl, title, type, description, minDonation, deadline, email, name, _id } = campign;
-  const navigate = useNavigate();
- 
-
+  const { imageUrl, title, type, description, minDonation, deadline, _id } = campign;
 
   return (
     <div className="card card-compact bg-base-100 border-2 shadow-xl">
       <figure>
-        <img src={imageUrl} alt={title} />
+        <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
       </figure>
-      <div className="text-start">
+      <div className="p-4">
         <h2 className="card-title">{title}</h2>
-        <p>Type:{type}</p>
-        <p className='text-gray-400'>Des:{description}</p>
-        <p>Name:{name}</p>
-        <p>Email{email}</p>
-        <p>Amount:${minDonation}</p>
-        <p>DeadLine:{deadline}</p>
-        <p>{_id}</p>
-        <div className="card-actions justify-end">
-          
-        
-        <NavLink className='btn btn-primary' to={`/details/${_id}`}>See More</NavLink>
-
+        <p>Type: {type}</p>
+        <p className="text-gray-400">Description: {description}</p>
+        <p>Min Donation: ${minDonation}</p>
+        <p>Deadline: {new Date(deadline).toLocaleDateString()}</p>
+        <div className="card-actions justify-end mt-4">
+          <NavLink to={`/details/${_id}`} className="btn btn-primary">
+            See More
+          </NavLink>
         </div>
       </div>
     </div>

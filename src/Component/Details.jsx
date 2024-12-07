@@ -14,7 +14,7 @@ const Details = () => {
 
     // Handle campaign loading
     if (!initialData || !Array.isArray(initialData)) {
-      fetch('http://localhost:4000/campign') // Fetch all campaigns
+      fetch('https://crowd-funding-10-server.vercel.app/campign') // Fetch all campaigns
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -69,7 +69,7 @@ const Details = () => {
     };
 
     // Send donation data to the server
-    fetch('http://localhost:4000/donatedcollection', {
+    fetch('https://crowd-funding-10-server.vercel.app/donatedcollection', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

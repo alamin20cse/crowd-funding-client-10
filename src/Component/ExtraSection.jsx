@@ -2,6 +2,7 @@ import React from 'react';
 import ac1 from '../assets/ac1.webp'
 import ac2 from '../assets/ac2.jpg'
 import ac3 from '../assets/ac3.jpg'
+import { Typewriter } from 'react-simple-typewriter'
 
 
 const ExtraSection = () => {
@@ -10,6 +11,32 @@ const ExtraSection = () => {
         {/* How It Works Section */}
         <section className="bg-gray-100 p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">How It Works</h2>
+
+
+
+
+
+          {/* typewriter */}
+          <span style={{ color: 'red', fontSize:'42px', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['1.Create a Campaign', '2.Invite Contributors', '3.Achieve Your Goal']}
+            loop={10}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+           
+          />
+        </span>
+
+
+
+
+
+
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center">
               <div className="bg-blue-500 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4">

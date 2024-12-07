@@ -42,7 +42,7 @@ const MyCampaign = () => {
 
 
         // delet form the database
-        fetch(`http://localhost:4000/campign${id}`,
+        fetch(`https://crowd-funding-10-server.vercel.app/campign${id}`,
           {
             method: 'DELETE',
 

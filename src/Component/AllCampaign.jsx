@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, useLoaderData } from 'react-router-dom';
+import { AuthContex } from './AuthProvider';
+import Loading from './Loading';
 
 const AllCampaign = () => {
   // Load campaigns and initialize state
   const loadedCampaigns = useLoaderData();
   const [campaigns, setCampaigns] = useState(loadedCampaigns);
+  
+
+  const {user,loading}=useContext(AuthContex);
+ 
+
+  if(loading)
+  {
+      return <Loading></Loading>
+  }
 
   // Sort functionality
   const sortCampaignsByMinDonation = () => {
