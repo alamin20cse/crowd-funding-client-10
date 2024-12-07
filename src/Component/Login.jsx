@@ -56,10 +56,10 @@ const Login = () => {
 
 
     return (
-    <div className='hero-content flex-col lg:flex-row-reverse'>
+    <div className='hero min-h-screen flex flex-col lg:flex-row-reverse'>
 
         {/* dfsdf */}
-        <div className='lg:w-1/2'>
+        <div className='w-full lg:w-1/2 flex items-center justify-center bg-base-200'>
 
 <Lottie animationData={ani1}></Lottie>
 
@@ -70,7 +70,7 @@ const Login = () => {
 
 {/* another */}
 
-      <div>
+      <div className='w-full lg:w-1/2 flex items-center justify-center bg-base-200'>
       <div className=" bg-base-200 min-h-screen">
          
          <ToastContainer></ToastContainer>

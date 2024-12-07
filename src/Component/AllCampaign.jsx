@@ -29,7 +29,7 @@ const AllCampaign = () => {
       <div className="flex justify-between my-5">
         <h1 className="text-xl font-bold mb-4">All Campaigns: {campaigns.length}</h1>
         <button className="btn btn-primary" onClick={sortCampaignsByMinDonation}>
-          Sort by Minimum Donation
+          Sort 
         </button>
       </div>
 

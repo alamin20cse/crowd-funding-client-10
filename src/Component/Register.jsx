@@ -61,16 +61,16 @@ const Register = () => {
 
 
     return (
-       <div className='hero-content flex-col lg:flex-row-reverse'>
+       <div className='hero min-h-screen flex flex-col lg:flex-row-reverse'>
         {/* ani */}
-        <div className=''>
+        <div className='w-full lg:w-1/2 flex items-center justify-center bg-base-200'>
           <Lottie animationData={ani2}></Lottie>
 
         </div>
 
         {/* for */}
         <div>
-        <div className=" bg-base-200 min-h-screen">
+        <div className="w-full lg:w-1/2 flex items-center justify-center bg-base-200">
           <ToastContainer></ToastContainer>
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
