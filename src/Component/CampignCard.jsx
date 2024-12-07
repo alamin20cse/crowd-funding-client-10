@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 const CampignCard = ({ campign }) => {
   const { imageUrl, title, type, description, minDonation, deadline, email, name, _id } = campign;
   const navigate = useNavigate();
+ 
 
 
   return (
