@@ -7,7 +7,7 @@ const MyCampaign = () => {
   const { user } = useContext(AuthContex); // Access user from context
   const loadeddata = useLoaderData(); // Data from loader
   const [userCampaigns, setUserCampaigns] = useState([]);
-  const [users,setusers]=useState(loadeddata);
+  const [users, setusers] = useState(loadeddata);
 
   useEffect(() => {
     if (user && loadeddata) {
@@ -50,7 +50,7 @@ const MyCampaign = () => {
         )
           .then(res => res.json())
           .then(data => {
-            console.log('delete is done ',data)
+            console.log('delete is done ', data)
 
             if (data.deletedCount) {
 
@@ -61,7 +61,7 @@ const MyCampaign = () => {
               });
               const updatedCampaigns = userCampaigns.filter((campaign) => campaign._id !== id);
               setUserCampaigns(updatedCampaigns);
-              
+
 
             }
           })
@@ -106,10 +106,10 @@ const MyCampaign = () => {
                   <td className="px-4 py-2 text-left text-gray-600">${campaign.minDonation}</td>
                   <td className="px-4 py-2 text-left">{campaign.deadline}</td>
                   <td className="px-4 py-2 text-left">
-                  
+
                     <Link to={`/updatecampaigns/${campaign._id}`}>
-                    <button className="btn btn-primary mr-2">Update</button>
-                    
+                      <button className="btn btn-primary mr-2">Update</button>
+
                     </Link>
                     <button onClick={() => handleDelet(campaign._id)} className="btn btn-secondary">Delete</button>
                   </td>

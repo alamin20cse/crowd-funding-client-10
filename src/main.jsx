@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         path: '/updatecampaigns/:id',
         element: <UpdateCampaigns />,
         loader: ({ params }) =>
-          fetch(`https://crowd-funding-10-server.vercel.app/campign/${params.id}`)
+          fetch(`https://crowd-funding-10-server.vercel.app/${params.id}`)
       }
       
      

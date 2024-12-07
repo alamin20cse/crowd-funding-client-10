@@ -25,7 +25,7 @@ const UpdateCampaigns = () => {
         console.log(updateCampaign);
 
         // Send data to the server
-        fetch(`https://crowd-funding-10-server.vercel.app/campign/${_id}`, {
+        fetch(`https://crowd-funding-10-server.vercel.app/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
