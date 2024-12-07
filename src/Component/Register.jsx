@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContex } from './AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import ani2 from '../Component/RegisterAnamiton.json'
+import Lottie from 'lottie-react';
 
 const Register = () => {
   const {createNewUser,setUser,updateUserProfile}=useContext(AuthContex);
@@ -59,6 +61,15 @@ const Register = () => {
 
 
     return (
+       <div className='hero-content flex-col lg:flex-row-reverse'>
+        {/* ani */}
+        <div className=''>
+          <Lottie animationData={ani2}></Lottie>
+
+        </div>
+
+        {/* for */}
+        <div>
         <div className=" bg-base-200 min-h-screen">
           <ToastContainer></ToastContainer>
         <div className="hero-content flex-col">
@@ -105,6 +116,10 @@ const Register = () => {
           </div>
         </div>
       </div>
+        </div>
+
+
+       </div>
     );
 };
 
