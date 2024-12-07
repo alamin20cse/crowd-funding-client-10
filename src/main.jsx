@@ -68,8 +68,13 @@ const router = createBrowserRouter([
       {
         path: '/updatecampaigns/:id',
         element: <UpdateCampaigns />,
-        loader: ({ params }) =>
-          fetch(`https://crowd-funding-10-server.vercel.app/${params.id}`)
+        loader: async ({ params }) => {
+          const response = await fetch(`https://crowd-funding-10-server.vercel.app/campign/${params.id}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch campaign data.');
+          }
+          return response.json();
+        },
       }
       
      
