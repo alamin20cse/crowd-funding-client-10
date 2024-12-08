@@ -75,7 +75,7 @@ const ExtraSection = () => {
       
         {/* Success Stories Section */}
         <section className="bg-white card p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Success Stories</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-400 mb-6">Success Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Story 1 */}
             <div className="bg-gray-100 p-6 rounded-lg shadow-sm">
