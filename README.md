@@ -28,8 +28,8 @@ Welcome to the CrowdFunding Application, a platform where people can create and 
 ## How to Run the Application Locally
 1. Clone the repository of client side:
    ```bash
-   git clone https://github.com/programming-hero-web-course2/b10-a10-client-side-alamin20cse
+   git clone https://github.com/alamin20cse/crowd-funding-client-10
    
 2. Clone the repository of server side:
    ```bash
-   git clonehttps://github.com/programming-hero-web-course2/b10-a10-server-side-alamin20cse
+   git clone https://github.com/alamin20cse/crowd-funding-server-10
